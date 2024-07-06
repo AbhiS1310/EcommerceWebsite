@@ -11,7 +11,7 @@ app.use(cookieParser());
 app.use(cors(
   {
         credentials: true,
-        origin: "https://ecommerce-web-peach.vercel.app/",
+        origin: "https://ecommerce-web-peach.vercel.app",
     }
 ));
 
