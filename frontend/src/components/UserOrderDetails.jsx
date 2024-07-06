@@ -26,7 +26,27 @@ const UserOrderDetails = () => {
   }, [dispatch,user._id]);
 
   const data = orders && orders.find((item) => item._id === id);
-
+  const handleMessageSubmit = async () => {
+    if (isAuthenticated) {
+      const groupTitle = data._id + user._id;
+      const userId = user._id;
+      const sellerId = data.shop._id;
+      await axios
+        .post(`${server}/conversation/create-new-conversation`, {
+          groupTitle,
+          userId,
+          sellerId,
+        })
+        .then((res) => {
+          navigate(`/inbox?${res.data.conversation._id}`);
+        })
+        .catch((error) => {
+          toast.error(error.response.data.message);
+        });
+    } else {
+      toast.error("Please login to create a conversation");
+    }
+  };
   const reviewHandler = async (e) => {
     await axios
       .put(
@@ -234,9 +254,7 @@ const UserOrderDetails = () => {
         </div>
       </div>
       <br />
-      <Link to="/">
-        <div className={`${styles.button} text-white`}>Send Message</div>
-      </Link>
+        <button className={`${styles.button} text-white`} onSubmit={handleMessageSubmit}>Send Message</button>
       <br />
       <br />
     </div>
