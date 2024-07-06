@@ -256,7 +256,7 @@ const UserOrderDetails = () => {
         </div>
       </div>
       <br />
-        <button className={`${styles.button} text-white`} onSubmit={handleMessageSubmit}>Send Message</button>
+        <div className={`${styles.button} text-white`} onClick={handleMessageSubmit}>Send Message</div>
       <br />
       <br />
     </div>
