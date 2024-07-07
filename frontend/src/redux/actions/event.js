@@ -60,6 +60,9 @@ export const deleteEvent = (id) => async (dispatch) => {
     const { data } = await axios.delete(
       `${server}/event/delete-shop-event/${id}`,{
         withCredentials: true,
+        headers: {
+            "Access-Control-Allow-Credentials": true,
+          }
       }
     );
 
