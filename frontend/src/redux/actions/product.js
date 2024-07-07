@@ -83,6 +83,9 @@ export const deleteProduct = (id) => async (dispatch) => {
     const { data } = await axios.delete(
       `${server}/product/delete-shop-product/${id}`,{
         withCredentials: true,
+        headers: {
+            "Access-Control-Allow-Credentials": true,
+          }
       }
     );
     console.log(data);
