@@ -84,11 +84,11 @@ router.delete(
         return next(new ErrorHandler("Product is not found with this id", 404));
       }    
 
-      for (let i = 0; i < product.images.length; i++) {
-        const result = await cloudinary.v2.uploader.destroy(
-          product.images[i].public_id
-        );
-      }
+      // for (let i = 0; i < product.images.length; i++) {
+      //   const result = await cloudinary.v2.uploader.destroy(
+      //     product.images[i].public_id
+      //   );
+      // }
       
       await Product.deleteOne(product._id);
 
