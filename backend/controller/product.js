@@ -76,7 +76,7 @@ router.get(
 // delete product of a shop
 router.delete(
   "/delete-shop-product/:id",
-  isSeller,
+  // isSeller,
   catchAsyncErrors(async (req, res, next) => {
     try {
       const product = await Product.findById(req.params.id);
