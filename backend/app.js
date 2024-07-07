@@ -11,7 +11,9 @@ app.use(cookieParser());
 app.use(cors(
   {
         credentials: true,
-        // origin: "https://ecommerce-web-peach.vercel.app",
+        origin: "https://ecommerce-web-peach.vercel.app",
+        methods: 'GET,POST,DELETE,UPDATE', // Allow only these methods
+        allowedHeaders: ['Content-Type', 'Authorization']
     }
 ));
 
