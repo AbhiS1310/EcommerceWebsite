@@ -85,7 +85,7 @@ export const deleteProduct = (id) => async (dispatch) => {
         withCredentials: true,
       }
     );
-
+    console.log(data);
     dispatch({
       type: "deleteProductSuccess",
       payload: data.message,
