@@ -61,6 +61,9 @@ export const updateUserInformation =
         },
         {
           withCredentials: true,
+          headers: {
+            "Access-Control-Allow-Credentials": true,
+          }
         } 
       );
 
@@ -96,6 +99,9 @@ export const updatUserAddress =
           addressType,
         },{
           withCredentials: true,
+          headers: {
+            "Access-Control-Allow-Credentials": true,
+          }
         }
       );
 
